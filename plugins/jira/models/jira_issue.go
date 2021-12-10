@@ -51,6 +51,7 @@ type JiraIssue struct {
 	StdStoryPoint   uint
 	StdType         string
 	StdStatus       string
+	AllFields       common.MapJsonColumn
 
 	// internal status tracking
 	ChangelogUpdated *time.Time

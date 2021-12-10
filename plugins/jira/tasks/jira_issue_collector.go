@@ -3,6 +3,7 @@ package tasks
 import (
 	"context"
 	"fmt"
+	"github.com/merico-dev/lake/models/common"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -215,6 +216,7 @@ func convertIssue(source *models.JiraSource, jiraApiIssue *JiraApiIssue) (jiraIs
 		workload, _ = jiraApiIssue.Fields[source.StoryPointField].(float64)
 	}
 	jiraIssue = &models.JiraIssue{
+		AllFields:          common.MapJsonColumn{ jiraApiIssue.Fields },
 		SourceId:           source.ID,
 		IssueId:            id,
 		ProjectId:          projectId,
